@@ -26,3 +26,6 @@ pandas: <br>
 https://colab.research.google.com/drive/1c_-k0voMDMBx0oU-FWO7f-8yN7-6vWXp#scrollTo=hcDuQz7Ts9kT <br>
 numpy: <br>
 https://colab.research.google.com/drive/1IgNAHOdXOuW7pUUmiJapEx_2QnCI2BmT#scrollTo=UHBRJs5SqHra
+
+Day8: <br>
+https://colab.research.google.com/drive/1FBc-PyfZ8R5qMbaAO9VQvaMfpuvywYJV#scrollTo=vJewH67b808T
