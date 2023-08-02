@@ -21,8 +21,8 @@ https://colab.research.google.com/drive/1jaCCIn3IujwH8rJDjA81_p3xAF-eRifG#scroll
 Day6:
 https://colab.research.google.com/drive/1AMOu3zpWFITuYvSm_I5asqNfYZAUmcDe
 
-Day7:
-pandas:
-https://colab.research.google.com/drive/1c_-k0voMDMBx0oU-FWO7f-8yN7-6vWXp#scrollTo=hcDuQz7Ts9kT
-numpy:
+Day7: <br>
+pandas: <br>
+https://colab.research.google.com/drive/1c_-k0voMDMBx0oU-FWO7f-8yN7-6vWXp#scrollTo=hcDuQz7Ts9kT <br>
+numpy: <br>
 https://colab.research.google.com/drive/1IgNAHOdXOuW7pUUmiJapEx_2QnCI2BmT#scrollTo=UHBRJs5SqHra
