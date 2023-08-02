@@ -3,22 +3,22 @@
 
 original code:
 
-Day1: 
+Day1: <br>
 https://colab.research.google.com/drive/1OJ2uTjjWLlmY2KthPCNd7R97t0vZpJ3a#scrollTo=YmiE_KFz5T8L
 
-Day2:
+Day2: <br>
 https://colab.research.google.com/drive/1dUaxN4DDUoeln96RrHTrHCFP1eYPrGl6?usp=sharing
 
-Day3:
+Day3: <br>
 https://colab.research.google.com/drive/1qwhpCEtOHUXMxaPnax5cRdBo8f0YqnWm#scrollTo=N56EHFvFM4W7
 
-Day4:
+Day4: <br>
 https://colab.research.google.com/drive/1VGOuLn7pr3vcp1oaAa2Zsknuusmv8sN1?usp=sharing
 
-Day5:
+Day5: <br>
 https://colab.research.google.com/drive/1jaCCIn3IujwH8rJDjA81_p3xAF-eRifG#scrollTo=uJc8Y4GqKprv
 
-Day6:
+Day6: <br>
 https://colab.research.google.com/drive/1AMOu3zpWFITuYvSm_I5asqNfYZAUmcDe
 
 Day7: <br>
