@@ -3,6 +3,7 @@
 M = [0,0,0,0,0,0,0,0]  #memory
 
 R = [0,0,0,0,0,0,0,0]  #register
+PC = 0
 #listOfInstructions =[(0, "C", 1),
 #      (1, "C", 1),(0, "LD", 1),(0, "ST", 1),
 #      (0, "+", 1, 2),(0, "+", 2, 3),(0, "+", 3, 4),(0, "+", 4, 5),(0, "+", 5, 6),(0, "+", 6, 7)]
@@ -18,10 +19,10 @@ def isInt(s):
     except ValueError:
         return False
 
-def evalListOfInstructions(listOfInstructions, R, M):
+def evalListOfInstructions(listOfInstructions, R, M, PC):
   print("eval")
-  for i in range(0, len(listOfInstructions)):
-    instr = listOfInstructions[i]
+  while (PC < len(listOfInstructions)):
+    instr = listOfInstructions[PC]
     print(R)
     print(M)
     print(instr)
@@ -39,6 +40,7 @@ def evalListOfInstructions(listOfInstructions, R, M):
         addrReg = instr[0]
         addrMem = instr[2]
         M[addrMem] = R[addrReg]
+        PC += 1
     elif len(instr) == 4:
          addr1 = instr[0]
          addr2 = instr[2]
@@ -52,6 +54,16 @@ def evalListOfInstructions(listOfInstructions, R, M):
            R[addr3] = R[addr1] * R[addr2]
          if op == "/":
            R[addr3] = R[addr1] / R[addr2]
+         PC += 1
+    elif len(instr) == 5:
+       addr1 = instr[0]
+       addr2 = instr[2]
+       pcIf = instr[3]
+       pcElse = instr[4]
+       if M[addr1] > M[addr2]:
+        PC = pcIf
+       else:
+        PC = pcElse
     # Code that evaluates instruction by instruction in listOfInsructions
   return R
 #evalListOfInstructions(listOfInstructions, R, M)
@@ -65,6 +77,10 @@ a = b + c
 a = b - c
 a = b * c
 a = b / c
+if a > b: 
+  a = 5
+else:
+  b = 3
 """
 pythStr = str.split("\n")
 print(pythStr)
@@ -151,7 +167,7 @@ for line in pythStr:
   else: 
     pass
   print(listOfInstructions)
-evalListOfInstructions(listOfInstructions, R, M)
+evalListOfInstructions(listOfInstructions, R, M, PC)
 print("Memory is", M)
     # map to classical operation
 """
