@@ -1,12 +1,13 @@
-#SEMIFINISHED product
-#register->mem simulation via py
+#Simulates how does a computer work, partly(register->mem simulation via py)
+
 M = [0,0,0,0,0,0,0,0]  #memory
 
 R = [0,0,0,0,0,0,0,0]  #register
+
 PC = 0
 #listOfInstructions =[(0, "C", 1),
-#      (1, "C", 1),(0, "LD", 1),(0, "ST", 1),
-#      (0, "+", 1, 2),(0, "+", 2, 3),(0, "+", 3, 4),(0, "+", 4, 5),(0, "+", 5, 6),(0, "+", 6, 7)]
+# (1, "C", 1),(0, "LD", 1),(0, "ST", 1),
+# (0, "+", 1, 2),(0, "+", 2, 3),(0, "+", 3, 4),(0, "+", 4, 5),(0, "+", 5, 6),(0, "+", 6, 7)]
 # 0, "LD", 1
 # 0, "ST", 1
 #print(R[0],R[1],R[2],R[3])
@@ -40,21 +41,21 @@ def evalListOfInstructions(listOfInstructions, R, M, PC):
         addrReg = instr[0]
         addrMem = instr[2]
         M[addrMem] = R[addrReg]
-        PC += 1
+       PC += 1
     elif len(instr) == 4:
-         addr1 = instr[0]
-         addr2 = instr[2]
-         addr3 = instr[3]
-         op = instr[1]
-         if op == "+":  
-           R[addr3] = R[addr1] + R[addr2]
-         if op == "-":
-           R[addr3] = R[addr1] - R[addr2]
-         if op == "*":
-           R[addr3] = R[addr1] * R[addr2]
-         if op == "/":
-           R[addr3] = R[addr1] / R[addr2]
-         PC += 1
+      addr1 = instr[0]
+      addr2 = instr[2]
+      addr3 = instr[3]
+      op = instr[1]
+      if op == "+":
+       R[addr3] = R[addr1] + R[addr2]
+      elif op == "-":
+       R[addr3] = R[addr1] - R[addr2]
+      elif op == "*":
+       R[addr3] = R[addr1] * R[addr2]
+      elif op == "/":
+       R[addr3] = R[addr1] / R[addr2]
+      PC += 1
     elif len(instr) == 5:
        addr1 = instr[0]
        addr2 = instr[2]
@@ -77,18 +78,22 @@ a = b + c
 a = b - c
 a = b * c
 a = b / c
-if a > b: 
-  a = 5
-else:
-  b = 3
+if a > b
+a = 11
+else
+b = 8
+c = 12
 """
 pythStr = str.split("\n")
 print(pythStr)
 addrFree = 0
 dicVarAddr = {}
-for line in pythStr:
+lineIdx = 0
+while lineIdx < len(pythStr):
+
   # Extract operands
   # 
+  line = pythStr[lineIdx]
   ops = line.split(" ")
   print(ops)
   # Constan operation
@@ -124,8 +129,39 @@ for line in pythStr:
       instr2 = (0, "ST", addr1)
       listOfInstructions.append(instr1)
       listOfInstructions.append(instr2) 
-    pass 
+    lineIdx+= 1
     # map to constant
+  elif len(ops) == 4:
+    if ops[1] in dicVarAddr:
+      addr1 = dicVarAddr[ops[1]]
+    else:
+        addr1 = addrFree
+        addrFree += 1
+        dicVarAddr[ops[1]] = addr1 
+    
+    if ops[3] in dicVarAddr:
+      addr2 = dicVarAddr[ops[3]]
+    else:
+        addr2 = addrFree
+        addrFree += 1
+        dicVarAddr[ops[3]] = addr1 
+    # Take if block instruction and map it
+    pcIf = len(listOfInstructions)
+    instr1 = (addr1, "IF", addr2, pcIf, 0)
+    # when we come to else instruction, go over listOfInsturctions, find first if 
+    # then set this pcelse to curent PC
+    lineIdx += 1
+  elif len(ops) == 1:
+    for i in range(1, len(listOfInstructions) + 1):
+      if (listOfInstructions[-i][1] == "IF"):
+       instr = listOfInstructions[-i]
+       print("INSTR BEFORE", instr)
+       listOfInstructions[-i] =  (instr[0], 
+        instr[1], instr[2], instr[3], len(listOfInstructions))
+       print("INSTRUCTION AFTER", listOfInstructions[-i])
+       break
+    lineIdx += 1
+    # Handle else case
   elif len(ops) == 5:
    
     if ops[0] in dicVarAddr:
@@ -163,15 +199,10 @@ for line in pythStr:
     listOfInstructions.append(instr2) 
     listOfInstructions.append(instr3)
     listOfInstructions.append(instr4)
-    
+    lineIdx += 1
   else: 
     pass
   print(listOfInstructions)
 evalListOfInstructions(listOfInstructions, R, M, PC)
 print("Memory is", M)
     # map to classical operation
-"""
-for i in range()
-                                                          
-
-"""
