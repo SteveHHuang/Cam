@@ -1,4 +1,4 @@
-#Simulates how does a computer work, partly(register->mem simulation via py)
+#Simulate how a computer works, partly(register->mem simulation via py)
 
 M = [0,0,0,0,0,0,0,0]  #memory
 
