@@ -1,4 +1,5 @@
 #Simulate how a computer works, partly(register->mem simulation via py)
+#https://colab.research.google.com/drive/1Kg_Bqzo2VkXeCGV1a6QAMfge3zky4DnA?usp=sharing
 
 M = [0,0,0,0,0,0,0,0]  #memory
 
